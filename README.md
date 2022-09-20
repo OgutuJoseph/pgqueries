@@ -1,3 +1,3 @@
-# pern-todo
+# pgqueries
 
 A project to demonstrate advanced Postgres Queries.
