@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 /** routes */
-app.use('/todos', require('./routes/todos'));
+app.use('/students', require('./routes/students'));
 
 const port = process.env.PORT;
 
