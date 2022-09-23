@@ -35,9 +35,14 @@ const Sidebar = () => {
                         <span>Dashboard</span>
                     </li>  
                     <p className='title'>LISTS</p>
-                    <Link to='/users' style={{ textDecoration:'none' }}>
+                    <Link to='/students' style={{ textDecoration:'none' }}>
                         <li>
-                            <PersonOutlineOutlinedIcon className='icon' /><span>Users</span>
+                            <PersonOutlineOutlinedIcon className='icon' /><span>Students</span>
+                        </li> 
+                    </Link> 
+                    <Link to='/teachers' style={{ textDecoration:'none' }}>
+                        <li>
+                            <PersonOutlineOutlinedIcon className='icon' /><span>Teachers</span>
                         </li> 
                     </Link> 
                     <Link to='/hotels' style={{ textDecoration:'none' }}>

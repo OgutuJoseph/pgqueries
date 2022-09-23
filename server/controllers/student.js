@@ -62,7 +62,7 @@ const getAllStudents = async (req, res, next) => {
 const getStudent = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const student = await pool.query('SELECT * FROM tbl_students WHERE student_id = $1', [id]);
+        const student = await pool.query('SELECT * FROM tbl_students WHERE _id = $1', [id]);
         
         res.status(200).json(student.rows)
     } catch (err) {
@@ -76,7 +76,7 @@ const editStudent = async (req, res, next) => {
         const { id } = req.params;
         const data = req.body;
         const { full_name, teacher_id, department_id } = data;
-        await pool.query('UPDATE tbl_students SET full_name = $1, teacher_id = $2, department_id = $3 WHERE student_id = $4', [full_name, teacher_id, department_id, id]);
+        await pool.query('UPDATE tbl_students SET full_name = $1, teacher_id = $2, department_id = $3 WHERE _id = $4', [full_name, teacher_id, department_id, id]);
 
         res.status(200).json('Student updated successfully.')
     } catch (err) {
@@ -91,14 +91,14 @@ const deleteStudent = async ( req, res, next) => {
 
         /** confirm if student exists */
         const checkStudent = {
-            text: `SELECT student_id FROM tbl_students WHERE student_id = ${id} LIMIT 1`
+            text: `SELECT _id FROM tbl_students WHERE _id = ${id} LIMIT 1`
         };
         const checkStudentData = await pool.query(checkStudent);
         if (Object.entries(checkStudentData.rows).length < 1) { 
             throw new APIError('Student does not exist.', 400)                        
         };
 
-        await pool.query('DELETE FROM tbl_students WHERE student_id = $1', [id]);
+        await pool.query('DELETE FROM tbl_students WHERE _id = $1', [id]);
 
         res.status(200).json('Student deleted successfully.')
     } catch (err) {

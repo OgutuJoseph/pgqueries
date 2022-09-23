@@ -1,38 +1,36 @@
-export const userInputs = [
+export const studentInputs = [
     {
-        id: "username",
-        label: "Username",
+        id: "full_name",
+        label: "Full Names",
         type: "text",
-        placeholder: "john_doe",
+        placeholder: "Enter Student Full Names",
     },
     {
-        id: "email",
-        label: "Email",
-        type: "email",
-        placeholder: "john_doe@gmail.com",
+        id: "teacher_id",
+        label: "Teacher ID",
+        type: "number",
+        placeholder: "Enter Teacher ID",
     },
     {
-        id: "phone",
-        label: "Phone",
+        id: "department_id",
+        label: "Department ID",
+        type: "number",
+        placeholder: "Enter Department ID",
+    },
+];
+
+export const teacherInputs = [
+    {
+        id: "full_name",
+        label: "Full Names",
         type: "text",
-        placeholder: "+1 234 567 89",
+        placeholder: "Enter Teacher Full Names",
     },
     {
-        id: "password",
-        label: "Password",
-        type: "password",
-    },
-    {
-        id: "country",
-        label: "Country",
-        type: "text",
-        placeholder: "USA",
-    },
-        {
-        id: "city",
-        label: "City",
-        type: "text",
-        placeholder: "USA",
+        id: "department_id",
+        label: "Department ID",
+        type: "number",
+        placeholder: "Enter Department ID",
     },
 ];
 

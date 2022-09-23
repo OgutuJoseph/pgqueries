@@ -1,22 +1,14 @@
-export const userColumns = [
-    { field: '_id', headerName: 'ID', width: 250 },
-    { 
-        field: 'user', 
-        headerName: 'User', 
-        width: 230,
-        renderCell:(params)=>{
-            return (
-                <div className='cellWithImg'>
-                    <img className='cellImg' src={params.row.img || "https://i.ibb.co/MBtjqXQ/no-avatar.gif"} alt='avatar' />
-                    {params.row.username}
-                </div>
-            )
-        }
-    },
-    { field: 'email', headerName: 'Email', width: 230 },
-    { field: 'phone', headerName: 'Phone', width: 100 },
-    { field: 'country', headerName: 'Country', width: 100 },
-    { field: 'city', headerName: 'City', width: 100 }
+export const studentColumns = [
+    { field: '_id', headerName: 'Student ID', width: 250 },
+    { field: 'full_name', headerName: 'Student Full Names', width: 200 },
+    { field: 'teacher_id', headerName: 'Teacher ID', width: 100 },
+    { field: 'department_id', headerName: 'Department ID', width: 230 }
+];
+
+export const teacherColumns = [
+    { field: '_id', headerName: 'Student ID', width: 250 },
+    { field: 'full_name', headerName: 'Student Full Names', width: 200 },
+    { field: 'department_id', headerName: 'Department ID', width: 230 }
 ];
 
 export const hotelColumns = [

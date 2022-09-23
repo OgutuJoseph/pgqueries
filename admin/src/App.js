@@ -4,14 +4,14 @@ import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import List from './pages/list/List';
 import Single from './pages/single/Single';
-import New from './pages/new/New';
-import NewHotel from './pages/newHotel/NewHotel';
-import NewRoom from './pages/newRoom/NewRoom';
-import { userInputs, hotelInputs, roomInputs } from './formSource';
+import NewStudent from './pages/new/students/New';
+import NewTeacher from './pages/new/teachers/New';
+// import NewRoom from './pages/new/room';
+import { studentInputs, teacherInputs, hotelInputs, roomInputs } from './formSource';
 import './style/dark.scss';
 import { DarkModeContext } from './context/darkModeContext';
 import { AuthContext } from './context/AuthContext';
-import { hotelColumns, roomColumns, userColumns } from './datatablesource';
+import { studentColumns, teacherColumns, hotelColumns, roomColumns } from './datatablesource';
 
 function App() {
 
@@ -32,26 +32,44 @@ function App() {
 
   return (
     <div className={darkMode ? 'app dark' : 'app'}>
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
           <Route path='/'>
             <Route path='login' element={<Login />} /> 
             <Route index element={<ProtectedRoute><Home /></ProtectedRoute>} />   
-            <Route path='users'>
-              <Route index element={<ProtectedRoute><List columns={userColumns} /></ProtectedRoute>} />
+            <Route path='students'>
+              <Route index element={<ProtectedRoute><List columns={studentColumns} /></ProtectedRoute>} />
               <Route path=':userId' element={<ProtectedRoute><Single /></ProtectedRoute>} />
-              <Route path='new' element={<ProtectedRoute><New inputs={userInputs} title='Add New User' /></ProtectedRoute>} />
+              <Route path='new' element={<ProtectedRoute><NewStudent inputs={studentInputs} title='Add New Student' /></ProtectedRoute>} />
             </Route>
             <Route path='hotels'>
               <Route index element={<ProtectedRoute><List columns={hotelColumns} /></ProtectedRoute>} />
               <Route path=':hotelId' element={<ProtectedRoute><Single /></ProtectedRoute>} />
               <Route path='new' element={<ProtectedRoute><NewHotel/></ProtectedRoute>} />
             </Route>
-            <Route path='rooms'>
-              <Route index element={<ProtectedRoute><List columns={roomColumns}  /></ProtectedRoute>} />
-              <Route path=':hotelId' element={<ProtectedRoute><Single /></ProtectedRoute>} />
-              <Route path='new' element={<ProtectedRoute><NewRoom inputs={roomInputs} title='Add New Room' /></ProtectedRoute>} />
+          </Route>
+        </Routes>
+      </BrowserRouter> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path='/'>
+            <Route index element={<Home />} />   
+            <Route path='login' element={<Login />} /> 
+            <Route path='students'>
+              <Route index element={<List columns={studentColumns} />} />
+              <Route path=':userId' element={<Single />} />
+              <Route path='new' element={<NewStudent inputs={studentInputs} title='Add New Student' />} />
             </Route>
+            <Route path='teachers'>
+              <Route index element={<List columns={teacherColumns} />} />
+              <Route path=':userId' element={<Single />} />
+              <Route path='new' element={<NewTeacher inputs={teacherInputs} title='Add New Teacher' />} />
+            </Route>
+            {/* <Route path='hotels'>
+              <Route index element={<List columns={hotelColumns} />} />
+              <Route path=':hotelId' element={<Single />} />
+              <Route path='new' element={<NewHotel />} />
+            </Route> */}
           </Route>
         </Routes>
       </BrowserRouter>

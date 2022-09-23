@@ -10,6 +10,7 @@ app.use(express.json());
 
 /** routes */
 app.use('/students', require('./routes/students'));
+app.use('/teachers', require('./routes/teachers'));
 
 const port = process.env.PORT;
 

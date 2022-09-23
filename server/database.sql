@@ -1,27 +1,28 @@
 CREATE DATABASE pgqueries;
 
 CREATE TABLE tbl_students(
-student_id serial PRIMARY KEY,
+_id serial PRIMARY KEY,
 full_name VARCHAR NOT NULL,
 teacher_id INT,
 department_id VARCHAR NOT NULL
 );
 
 CREATE TABLE tbl_teachers(
-teacher_id serial PRIMARY KEY,
+_id serial PRIMARY KEY,
 full_name VARCHAR NOT NULL,
 department_id VARCHAR NOT NULL
 );
 
 CREATE TABLE tbl_departments(
-department_id VARCHAR NOT NULL,
-teacher_id serial PRIMARY KEY,
+_id serial PRIMARY KEY,
+teacher_id VARCHAR NOT NULL,
 department_name VARCHAR NOT NULL
 );
 
 CREATE TABLE tbl_scores(
+_id serial PRIMARY KEY,
 student_id VARCHAR NOT NULL,
-teacher_id serial PRIMARY KEY,
+teacher_id VARCHAR NOT NULL,
 department_id VARCHAR NOT NULL,
 Score VARCHAR NOT NULL
 );
