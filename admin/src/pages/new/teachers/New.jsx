@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { configs } from '../../../config';
 import './New.scss';
 import Sidebar from '../../../components/sidebar/Sidebar';
 import Navbar from '../../../components/navbar/Navbar';
@@ -7,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const NewTeacher = ({ inputs, title }) => {
 
+    const baseUrl = configs.url;
     const navigate = useNavigate();
     const [info, setInfo] = useState({});
 
@@ -26,7 +28,7 @@ const NewTeacher = ({ inputs, title }) => {
 
             await axios({
                 method: 'post',
-                url: '/teachers',
+                url: `${baseUrl}/teachers`,
                 data: newTeacher
             })
             .then((res) => {

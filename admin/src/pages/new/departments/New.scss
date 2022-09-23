@@ -29,13 +29,12 @@
                 }
             }
 
-            .rightRoom {
+            .right {
                 flex: 2;
 
                 form {
                     display: flex;
                     flex-wrap: wrap;
-                    flex-direction: column;
                     gap: 20px;
                     justify-content: space-between;
 
@@ -57,12 +56,6 @@
                         width: 100%;
                         border: none;
                         border-bottom: 1px solid gray;
-                    }
-
-                    
-                    textarea {
-                        width: 100%; 
-                        border-bottom: 2px solid gray;
                     }
 
                     button {

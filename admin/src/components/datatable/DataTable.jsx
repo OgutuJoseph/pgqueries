@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
+import { configs } from '../../config';
 import './DataTable.scss';
 import { DataGrid } from '@mui/x-data-grid';
-import { userColumns, userRows } from '../../datatablesource';
 import { Link, useLocation } from 'react-router-dom';
 import useFetch from "../../hooks/useFetch";
 import axios from 'axios';
@@ -13,8 +13,9 @@ const DataTable = ({ columns}) => {
     // const { data, loading, error }  = useFetch('/users')
     const location = useLocation();
     const path = location.pathname.split('/')[1];
+    const baseUrl = configs.url;
 
-    const { data, loading, error }  = useFetch(`/${path}`) 
+    const { data, loading, error }  = useFetch(`${baseUrl}/${path}`) 
 
     useEffect(() => {
         setList(data);
@@ -22,7 +23,7 @@ const DataTable = ({ columns}) => {
     
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`/${path}/${id}`)
+            await axios.delete(`${baseUrl}/${path}/${id}`)
             setList(list.filter(item => item._id !== id))
         } catch (err) {
             

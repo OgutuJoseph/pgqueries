@@ -6,7 +6,7 @@ import Navbar from '../../../components/navbar/Navbar';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const NewStudent = ({ inputs, title }) => {
+const NewDepartment = ({ inputs, title }) => {
 
     const baseUrl = configs.url;
     const navigate = useNavigate();
@@ -24,17 +24,17 @@ const NewStudent = ({ inputs, title }) => {
 
         try {
 
-            const newStudent = [ info ]
+            const newDepartment = info 
 
             await axios({
                 method: 'post',
-                url: `${baseUrl}/students`,
-                data: newStudent
+                url: `${baseUrl}/departments`,
+                data: newDepartment
             })
             .then((res) => {
                 if(res.status === 201){
-                    console.log('Student Saved.')
-                    navigate('/students')
+                    console.log('Department Saved.')
+                    navigate('/departments')
                 }
             })
         } catch (err) {
@@ -68,4 +68,4 @@ const NewStudent = ({ inputs, title }) => {
     )
 }
 
-export default NewStudent;
+export default NewDepartment;

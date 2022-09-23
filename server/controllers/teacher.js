@@ -11,7 +11,7 @@ const createTeacher = async (req, res, next) => {
         const fields = [ 'full_name',  'department_id' ];
 
         fields.forEach((element) => {
-            if (!data[element]) throw new APIError(`${element} is missing is one or more of the rows inserted.`, 400);
+            if (!data[element]) throw new APIError(`${element} is required.`, 400);
         });
         
         /** inerting data */
@@ -31,7 +31,6 @@ const createTeacher = async (req, res, next) => {
             )}) RETURNING *`,
             values
         };
-        console.log('data to insert: ', dataToInsert)
         await pool.query(dataToInsert)
         
         .then(() => { res.status(201).json('Teacher created successfullly.') })

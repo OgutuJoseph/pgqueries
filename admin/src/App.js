@@ -6,12 +6,12 @@ import List from './pages/list/List';
 import Single from './pages/single/Single';
 import NewStudent from './pages/new/students/New';
 import NewTeacher from './pages/new/teachers/New';
-// import NewRoom from './pages/new/room';
-import { studentInputs, teacherInputs, hotelInputs, roomInputs } from './formSource';
+import NewDepartment from './pages/new/departments/New';
+import { studentInputs, teacherInputs, departmentInputs } from './formSource';
 import './style/dark.scss';
 import { DarkModeContext } from './context/darkModeContext';
 import { AuthContext } from './context/AuthContext';
-import { studentColumns, teacherColumns, hotelColumns, roomColumns } from './datatablesource';
+import { studentColumns, teacherColumns, departmentColumns, } from './datatablesource';
 
 function App() {
 
@@ -39,13 +39,23 @@ function App() {
             <Route index element={<ProtectedRoute><Home /></ProtectedRoute>} />   
             <Route path='students'>
               <Route index element={<ProtectedRoute><List columns={studentColumns} /></ProtectedRoute>} />
-              <Route path=':userId' element={<ProtectedRoute><Single /></ProtectedRoute>} />
+              <Route path=':studentId' element={<ProtectedRoute><Single /></ProtectedRoute>} />
               <Route path='new' element={<ProtectedRoute><NewStudent inputs={studentInputs} title='Add New Student' /></ProtectedRoute>} />
             </Route>
-            <Route path='hotels'>
-              <Route index element={<ProtectedRoute><List columns={hotelColumns} /></ProtectedRoute>} />
-              <Route path=':hotelId' element={<ProtectedRoute><Single /></ProtectedRoute>} />
-              <Route path='new' element={<ProtectedRoute><NewHotel/></ProtectedRoute>} />
+            <Route path='teachers'>
+              <Route index element={<ProtectedRoute><List columns={teacherColumns} /></ProtectedRoute>} />
+              <Route path=':teacherId' element={<ProtectedRoute><Single /></ProtectedRoute>} />
+              <Route path='new' element={<ProtectedRoute><NewTeacher inputs={teacherInputs} title='Add New Teacher' /></ProtectedRoute>} />
+            </Route>
+            <Route path='departments'>
+              <Route index element={<ProtectedRoute><List columns={departmentColumns} /></ProtectedRoute>} />
+              <Route path=':departmentId' element={<ProtectedRoute><Single /></ProtectedRoute>} />
+              <Route path='new' element={<ProtectedRoute><NewDepartment inputs={studentInputs} title='Add New Department' /></ProtectedRoute>} />
+            </Route>
+            <Route path='scores'>
+              <Route index element={<ProtectedRoute><List columns={scoreColumns} /></ProtectedRoute>} />
+              <Route path=':scoreId' element={<ProtectedRoute><Single /></ProtectedRoute>} />
+              <Route path='new' element={<ProtectedRoute><NewScore/></ProtectedRoute>} />
             </Route>
           </Route>
         </Routes>
@@ -57,13 +67,18 @@ function App() {
             <Route path='login' element={<Login />} /> 
             <Route path='students'>
               <Route index element={<List columns={studentColumns} />} />
-              <Route path=':userId' element={<Single />} />
+              <Route path=':studentId' element={<Single />} />
               <Route path='new' element={<NewStudent inputs={studentInputs} title='Add New Student' />} />
             </Route>
             <Route path='teachers'>
               <Route index element={<List columns={teacherColumns} />} />
-              <Route path=':userId' element={<Single />} />
+              <Route path=':teacherId' element={<Single />} />
               <Route path='new' element={<NewTeacher inputs={teacherInputs} title='Add New Teacher' />} />
+            </Route>
+            <Route path='departments'>
+              <Route index element={<List columns={departmentColumns} />} />
+              <Route path=':departmentId' element={<Single />} />
+              <Route path='new' element={<NewDepartment inputs={departmentInputs} title='Add New Department' />} />
             </Route>
             {/* <Route path='hotels'>
               <Route index element={<List columns={hotelColumns} />} />

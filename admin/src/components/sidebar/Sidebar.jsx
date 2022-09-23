@@ -45,9 +45,9 @@ const Sidebar = () => {
                             <PersonOutlineOutlinedIcon className='icon' /><span>Teachers</span>
                         </li> 
                     </Link> 
-                    <Link to='/hotels' style={{ textDecoration:'none' }}>
+                    <Link to='/departments' style={{ textDecoration:'none' }}>
                         <li>
-                            <StoreIcon className='icon' /><span>Hotels</span>
+                            <StoreIcon className='icon' /><span>Departments</span>
                         </li>
                     </Link> 
                     <Link to='/rooms' style={{ textDecoration: 'none' }}>
