@@ -25,4 +25,4 @@ student_id VARCHAR NOT NULL,
 teacher_id VARCHAR NOT NULL,
 department_id VARCHAR NOT NULL,
 Score VARCHAR NOT NULL
-)
+);
